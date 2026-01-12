@@ -1,0 +1,23 @@
+body {
+  font-family: Arial;
+  background: #c3ec77;
+  padding: 30px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.viewer {
+  margin-top: 20px;
+  height: 80vh;
+  border: 4px solid #92b9e6;
+  border-radius: 10px;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+

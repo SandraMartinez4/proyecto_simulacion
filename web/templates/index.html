@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Visualizador de Notebooks</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<h1>Visualizador de Notebooks</h1>
+
+<form method="get">
+  <input type="text" name="folder" placeholder="/ruta/a/mis/notebooks"
+         value="{{ folder }}" style="width:60%">
+  <button type="submit">Buscar</button>
+</form>
+
+{% if notebooks %}
+  <form method="get">
+    <input type="hidden" name="folder" value="{{ folder }}">
+    <select name="notebook" onchange="this.form.submit()">
+      <option value="">Selecciona un notebook</option>
+      {% for n in notebooks %}
+        <option value="{{ n }}">{{ n }}</option>
+      {% endfor %}
+    </select>
+  </form>
+{% endif %}
+
+{% if selected_html %}
+  <div class="viewer">
+    <iframe src="{{ selected_html }}"></iframe>
+  </div>
+{% endif %}
+
+</body>
+</html>
+
+
